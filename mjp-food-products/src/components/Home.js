@@ -1,9 +1,11 @@
 import React from "react";
-import "./Home.css";
+import "../style/Home.css";
+import Header from "./Header";
 
 function Home() {
   return (
     <div className="home">
+      <Header />
       <div className="banner">
         <img src="/path-to-your-banner-image.jpg" alt="Delicious Food Banner" />
       </div>
