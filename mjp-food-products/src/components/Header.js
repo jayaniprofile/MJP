@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../style/Header.css"; // Import the CSS file
 
 function Header() {
   return (
-    <header>
+    <header className="header">
+      <div className="logo">MJP Food Products</div>
       <nav>
-        <ul>
+        <ul className="nav-links">
           <li>
             <Link to="/">Home</Link>
           </li>
