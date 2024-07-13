@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../style/Menu.css";
+import Header from "./Header";
 
 const items = {
   sweets: [
@@ -61,12 +62,20 @@ function Menu() {
 
   return (
     <div className="menu">
+      <Header />
       <h1>Our Menu</h1>
       <div className="categories">
-        <button onClick={() => setSelectedCategory("sweets")}>Sweets</button>
-        <button onClick={() => setSelectedCategory("premade")}>
-          Pre-made Foods
-        </button>
+        <div className="category" onClick={() => setSelectedCategory("sweets")}>
+          <img src="/path-to-sweets-image.jpg" alt="Sweets" />
+          <h2>Sweets</h2>
+        </div>
+        <div
+          className="category"
+          onClick={() => setSelectedCategory("premade")}
+        >
+          <img src="/path-to-premade-image.jpg" alt="Pre-made Foods" />
+          <h2>Pre-made Foods</h2>
+        </div>
       </div>
       {selectedCategory && (
         <div className="items">
