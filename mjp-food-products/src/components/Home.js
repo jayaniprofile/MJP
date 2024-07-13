@@ -1,9 +1,12 @@
 import React from "react";
 import "../style/Home.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Home() {
   return (
     <div className="home">
+      <Header />
       <div className="banner">
         <img src="/path-to-your-banner-image.jpg" alt="Delicious Food Banner" />
       </div>
@@ -53,6 +56,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
