@@ -34,6 +34,13 @@ function Footer() {
             >
               <img src="/path-to-instagram-icon.png" alt="Instagram" />
             </a>
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/path-to-youtube-icon.png" alt="YouTube" />
+            </a>
           </div>
         </div>
         <div className="footer-section">
