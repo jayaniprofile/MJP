@@ -1,63 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/Menu.css";
 
+const items = {
+  sweets: [
+    {
+      name: "Chocolate Cake",
+      description: "Delicious chocolate cake.",
+      price: "$10.00",
+      img: "/path-to-chocolate-cake.jpg",
+    },
+    {
+      name: "Butter Cake",
+      description: "Soft and rich butter cake.",
+      price: "$8.00",
+      img: "/path-to-butter-cake.jpg",
+    },
+    {
+      name: "Cup Cake",
+      description: "Sweet and delightful cupcakes.",
+      price: "$5.00",
+      img: "/path-to-cup-cake.jpg",
+    },
+    {
+      name: "Icing Cake",
+      description: "Beautifully decorated icing cake.",
+      price: "$12.00",
+      img: "/path-to-icing-cake.jpg",
+    },
+  ],
+  premade: [
+    {
+      name: "Kottu Roti",
+      description: "Sri Lankan chopped flatbread.",
+      price: "$8.00",
+      img: "/path-to-kottu-image.jpg",
+    },
+    {
+      name: "Gothamba Roti",
+      description: "Traditional flatbread.",
+      price: "$4.00",
+      img: "/path-to-roti-image.jpg",
+    },
+    {
+      name: "Parata Roti",
+      description: "Flaky and delicious parata.",
+      price: "$5.00",
+      img: "/path-to-parata-image.jpg",
+    },
+    {
+      name: "Lasagna Sheets",
+      description: "Perfect for homemade lasagna.",
+      price: "$6.00",
+      img: "/path-to-lasagna-sheets.jpg",
+    },
+  ],
+};
+
 function Menu() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   return (
     <div className="menu">
       <h1>Our Menu</h1>
-      <section className="category sweets">
-        <h2>Sweets</h2>
+      <div className="categories">
+        <button onClick={() => setSelectedCategory("sweets")}>Sweets</button>
+        <button onClick={() => setSelectedCategory("premade")}>
+          Pre-made Foods
+        </button>
+      </div>
+      {selectedCategory && (
         <div className="items">
-          <div className="item">
-            <img src="/path-to-cake-image.jpg" alt="Cake" />
-            <div className="item-info">
-              <h3>Cake</h3>
-              <p>Rich and moist cake, perfect for any occasion.</p>
-              <p className="price">$10.00</p>
+          {items[selectedCategory].map((item) => (
+            <div className="item" key={item.name}>
+              <img src={item.img} alt={item.name} />
+              <div className="item-info">
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <p className="price">{item.price}</p>
+              </div>
             </div>
-          </div>
-          {/* Add more sweet items here */}
+          ))}
         </div>
-      </section>
-      <section className="category spicy">
-        <h2>Spicy</h2>
-        <div className="items">
-          <div className="item">
-            <img src="/path-to-kottu-image.jpg" alt="Kottu" />
-            <div className="item-info">
-              <h3>Kottu</h3>
-              <p>
-                A popular Sri Lankan dish made with chopped flatbread,
-                vegetables, and spices.
-              </p>
-              <p className="price">$8.00</p>
-            </div>
-          </div>
-          <div className="item">
-            <img src="/path-to-parata-image.jpg" alt="Parata" />
-            <div className="item-info">
-              <h3>Parata</h3>
-              <p>
-                Flaky and delicious, our paratas are a must-try for lovers of
-                spicy food.
-              </p>
-              <p className="price">$5.00</p>
-            </div>
-          </div>
-          <div className="item">
-            <img src="/path-to-roti-image.jpg" alt="Gothamba Roti" />
-            <div className="item-info">
-              <h3>Gothamba Roti</h3>
-              <p>
-                A traditional Sri Lankan flatbread, perfect to accompany any
-                spicy dish.
-              </p>
-              <p className="price">$4.00</p>
-            </div>
-          </div>
-          {/* Add more spicy items here */}
-        </div>
-      </section>
+      )}
     </div>
   );
 }
