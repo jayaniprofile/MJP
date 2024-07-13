@@ -1,0 +1,66 @@
+.menu {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .menu h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff6347; /* Tomato color */
+  }
+  
+  .category {
+    padding: 20px;
+    margin: 20px 0;
+    border-top: 5px solid #ff6347; /* Tomato color */
+  }
+  
+  .category h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff6347; /* Tomato color */
+  }
+  
+  .items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .item {
+    margin: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  
+  .item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .item-info {
+    padding: 10px;
+  }
+  
+  .item-info h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+  
+  .item-info p {
+    font-size: 1em;
+    margin: 5px 0;
+  }
+  
+  .item-info .price {
+    font-weight: bold;
+    color: #ff6347; /* Tomato color */
+    font-size: 1.2em;
+  }
+  
