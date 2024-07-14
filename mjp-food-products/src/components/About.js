@@ -1,9 +1,13 @@
 import React from "react";
 import "../style/About.css";
+import Footer from "./Footer";
+import Header from "./Header";
+import ceo from "../images/ayya.jpg";
 
 function About() {
   return (
     <div className="about">
+      <Header />
       <div className="about-banner">
         <img
           src="/path-to-your-about-banner-image.jpg"
@@ -30,22 +34,35 @@ function About() {
           exceptional food offerings.
         </p>
       </section>
+      <section className="mission-vision">
+        <div className="mission">
+          <h2>Our Mission</h2>
+          <p>
+            To deliver the finest selection of delicious sweets and pre-made
+            foods, crafted with the highest quality ingredients to ensure a
+            delightful culinary experience for our customers.
+          </p>
+        </div>
+        <div className="vision">
+          <h2>Our Vision</h2>
+          <p>
+            To be the leading provider of exceptional food products, known for
+            our commitment to quality, customer satisfaction, and the
+            celebration of traditional flavors.
+          </p>
+        </div>
+      </section>
       <section className="about-team">
         <h2>Our Team</h2>
         <div className="team-members">
           <div className="team-member">
-            <img src="/path-to-team-member1.jpg" alt="Team Member 1" />
-            <h3>John Doe</h3>
+            <img src={ceo} alt="Team Member 1" />
+            <h3>Madushan Nishshanka</h3>
             <p>Founder & CEO</p>
           </div>
-          <div className="team-member">
-            <img src="/path-to-team-member2.jpg" alt="Team Member 2" />
-            <h3>Jane Smith</h3>
-            <p>Head Chef</p>
-          </div>
-          // Add more team members as needed
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
