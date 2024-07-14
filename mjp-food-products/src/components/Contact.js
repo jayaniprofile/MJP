@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/Contact.css";
-import Header from "./Header";
-import Footer from "./Footer";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    const whatsappNumber = "94706616049"; // Your WhatsApp number in international format without the plus sign
+    const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <div className="contact">
-      <Header />
       <div className="contact-banner">
         <img
           src="/path-to-your-contact-banner-image.jpg"
@@ -24,18 +46,35 @@ function Contact() {
       <section className="contact-details">
         <div className="contact-form">
           <h2>Send Us a Message</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>
               Name:
-              <input type="text" name="name" required />
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
             </label>
             <label>
               Email:
-              <input type="email" name="email" required />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </label>
             <label>
               Message:
-              <textarea name="message" required></textarea>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
             </label>
             <button type="submit">Send</button>
           </form>
@@ -85,7 +124,6 @@ function Contact() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
