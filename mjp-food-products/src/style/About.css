@@ -1,0 +1,85 @@
+/* Basic styles */
+.about {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: center;
+  }
+  
+  .about-banner img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .about-content {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .about-content h1 {
+    font-size: 2.5em;
+    color: #ff6347; /* Tomato color */
+    margin-bottom: 20px;
+  }
+  
+  .about-content p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 10px auto;
+    line-height: 1.6;
+  }
+  
+  .about-team {
+    padding: 40px 20px;
+  }
+  
+  .about-team h2 {
+    font-size: 2em;
+    color: #ff6347; /* Tomato color */
+    margin-bottom: 20px;
+  }
+  
+  .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .team-member {
+    max-width: 200px;
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .team-member h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .team-member p {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .about-content, .about-team {
+      padding: 20px 10px;
+    }
+  
+    .team-members {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .team-member {
+      max-width: 300px;
+    }
+  }
+  
