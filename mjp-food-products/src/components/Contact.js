@@ -1,9 +1,12 @@
 import React from "react";
 import "../style/Contact.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Contact() {
   return (
     <div className="contact">
+      <Header />
       <div className="contact-banner">
         <img
           src="/path-to-your-contact-banner-image.jpg"
@@ -46,13 +49,25 @@ function Contact() {
             <strong>Email:</strong> contact@mjpfoodproducts.com
           </p>
           <div className="social-media">
-            <a href="https://www.facebook.com">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="https://www.youtube.com">
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-youtube"></i>
             </a>
           </div>
@@ -70,6 +85,7 @@ function Contact() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
