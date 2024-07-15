@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../style/Menu.css";
 import Header from "./Header";
+import butter from "../images/butter.jpeg";
 
 const items = {
   sweets: [
@@ -14,7 +15,7 @@ const items = {
       name: "Butter Cake",
       description: "Soft and rich butter cake.",
       price: "$8.00",
-      img: "/path-to-butter-cake.jpg",
+      img: "../images/butter.jpeg",
     },
     {
       name: "Cup Cake",
