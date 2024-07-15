@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../style/OrderOnline.css";
 
 function OrderOnline() {
@@ -108,8 +108,10 @@ function OrderOnline() {
         <fieldset>
           <legend>Select Items:</legend>
           {itemsList.map((item) => (
-            <label key={item.id}>
-              {item.name} - ${item.price}
+            <label key={item.id} className="item-label">
+              <span>
+                {item.name} - ${item.price}
+              </span>
               <input
                 type="number"
                 min="0"
