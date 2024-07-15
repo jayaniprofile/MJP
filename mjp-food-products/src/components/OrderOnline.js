@@ -45,9 +45,37 @@ function OrderOnline() {
     }, 0);
   };
 
-  const handleSubmit = (e) => {
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     alert("Order Submitted!"); // Here you can integrate with your backend or external service
+  //   };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Order Submitted!"); // Here you can integrate with your backend or external service
+    const total = calculateTotal();
+
+    const orderData = {
+      ...formData,
+      totalPrice: total,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (response.ok) {
+        alert("Order Submitted Successfully!");
+      } else {
+        alert("Failed to submit order");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
