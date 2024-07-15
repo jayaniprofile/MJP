@@ -21,7 +21,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, message } = formData;
-    const whatsappNumber = "94711234567"; // Your WhatsApp number in international format without the plus sign
+    const whatsappNumber = "04706616049"; // Your WhatsApp number in international format without the plus sign
     const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       whatsappMessage
@@ -85,10 +85,10 @@ function Contact() {
         <div className="contact-info-details">
           <h2>Get in Touch</h2>
           <p>
-            <strong>Phone:</strong> +123 456 7890
+            <strong>Phone:</strong> 070 661 6049
           </p>
           <p>
-            <strong>Email:</strong> contact@mjpfoodproducts.com
+            <strong>Email:</strong> mjpfoodproducts@gmail.com
           </p>
           <div className="social-media">
             <a

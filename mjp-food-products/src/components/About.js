@@ -54,7 +54,7 @@ function About() {
         </div>
       </section>
       <section className="about-team">
-        <h2>Our Team</h2>
+        <h2>Our Lead</h2>
         <div className="team-members">
           <div className="team-member">
             <img src={ceo1} alt="Team Member 1" />

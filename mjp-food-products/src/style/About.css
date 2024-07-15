@@ -60,6 +60,10 @@
     padding: 40px 20px;
     background-color: #f9f9f9;
     animation: fadeInUp 3s ease-in-out;
+    background: 
+        url("https://media.istockphoto.com/id/1168280104/vector/white-background-design-with-golden-ribbon-decoration.jpg?s=612x612&w=0&k=20&c=ezCiSbcFOGoLOkwi_pGf6d-r1sf1oCO5--w9nOSuGpc=");
+    background-size: cover;
+    background-position: center;
   }
   
   .about-team h2 {
