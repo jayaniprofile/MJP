@@ -1,5 +1,14 @@
 import React, { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
 import "../style/OrderOnline.css";
+
+const stripePromise = loadStripe("YOUR_STRIPE_PUBLIC_KEY");
 
 function OrderOnline() {
   const [formData, setFormData] = useState({
@@ -11,6 +20,8 @@ function OrderOnline() {
     items: {},
     instructions: "",
   });
+
+  const [clientSecret, setClientSecret] = useState("");
 
   const itemsList = [
     { id: 1, name: "Kottu", price: 5 },
@@ -45,11 +56,6 @@ function OrderOnline() {
     }, 0);
   };
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     alert("Order Submitted!"); // Here you can integrate with your backend or external service
-  //   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const total = calculateTotal();
@@ -70,6 +76,8 @@ function OrderOnline() {
 
       if (response.ok) {
         alert("Order Submitted Successfully!");
+        const { clientSecret } = await response.json();
+        setClientSecret(clientSecret);
       } else {
         alert("Failed to submit order");
       }
@@ -79,91 +87,133 @@ function OrderOnline() {
   };
 
   return (
-    <div className="order-online">
-      <h1>Order Online</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Address:
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required={formData.pickupOrDelivery === "delivery"}
-          />
-        </label>
-        <label>
-          Phone:
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Pickup or Delivery:
-          <select
-            name="pickupOrDelivery"
-            value={formData.pickupOrDelivery}
-            onChange={handleChange}
-          >
-            <option value="pickup">Pickup</option>
-            <option value="delivery">Delivery</option>
-          </select>
-        </label>
-        <fieldset>
-          <legend>Select Items:</legend>
-          {itemsList.map((item) => (
-            <label key={item.id} className="item-label">
-              <span>
-                {item.name} - ${item.price}
-              </span>
-              <input
-                type="number"
-                min="0"
-                name={item.name}
-                value={formData.items[item.id] || 0}
-                onChange={(e) =>
-                  handleItemChange(item.id, Number(e.target.value))
-                }
-              />
-            </label>
-          ))}
-        </fieldset>
-        <label>
-          Special Instructions:
-          <textarea
-            name="instructions"
-            value={formData.instructions}
-            onChange={handleChange}
-          ></textarea>
-        </label>
-        <h2>Total Price: ${calculateTotal()}</h2>
-        <button type="submit">Submit Order</button>
-      </form>
-    </div>
+    <Elements stripe={stripePromise}>
+      <div className="order-online">
+        <h1>Order Online</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Address:
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              required={formData.pickupOrDelivery === "delivery"}
+            />
+          </label>
+          <label>
+            Phone:
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Pickup or Delivery:
+            <select
+              name="pickupOrDelivery"
+              value={formData.pickupOrDelivery}
+              onChange={handleChange}
+            >
+              <option value="pickup">Pickup</option>
+              <option value="delivery">Delivery</option>
+            </select>
+          </label>
+          <fieldset>
+            <legend>Select Items:</legend>
+            {itemsList.map((item) => (
+              <label key={item.id} className="item-label">
+                <span>
+                  {item.name} - ${item.price}
+                </span>
+                <input
+                  type="number"
+                  min="0"
+                  name={item.name}
+                  value={formData.items[item.id] || 0}
+                  onChange={(e) =>
+                    handleItemChange(item.id, Number(e.target.value))
+                  }
+                />
+              </label>
+            ))}
+          </fieldset>
+          <label>
+            Special Instructions:
+            <textarea
+              name="instructions"
+              value={formData.instructions}
+              onChange={handleChange}
+            ></textarea>
+          </label>
+          <h2>Total Price: ${calculateTotal()}</h2>
+          <button type="submit">Submit Order</button>
+        </form>
+        {clientSecret && <StripePaymentForm clientSecret={clientSecret} />}
+      </div>
+    </Elements>
+  );
+}
+
+function StripePaymentForm({ clientSecret }) {
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const handlePaymentSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    const result = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: "Jenny Rosen",
+        },
+      },
+    });
+
+    if (result.error) {
+      console.log(result.error.message);
+    } else {
+      if (result.paymentIntent.status === "succeeded") {
+        console.log("Payment succeeded!");
+      }
+    }
+  };
+
+  return (
+    <form onSubmit={handlePaymentSubmit}>
+      <CardElement />
+      <button type="submit" disabled={!stripe}>
+        Pay
+      </button>
+    </form>
   );
 }
 
