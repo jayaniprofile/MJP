@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../style/Contact.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -29,6 +31,7 @@ function Contact() {
 
   return (
     <div className="contact">
+      <Header />
       <div className="contact-banner">
         <img
           src="/path-to-your-contact-banner-image.jpg"
@@ -124,6 +127,7 @@ function Contact() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
