@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../style/OrderOnline.css";
 
 function OrderOnline() {
@@ -8,11 +8,11 @@ function OrderOnline() {
     address: "",
     phone: "",
     pickupOrDelivery: "pickup",
-    items: [],
+    items: {},
     instructions: "",
   });
 
-  const items = [
+  const itemsList = [
     { id: 1, name: "Kottu", price: 5 },
     { id: 2, name: "Parata", price: 2 },
     { id: 3, name: "Gothamba Roti", price: 1 },
@@ -28,15 +28,21 @@ function OrderOnline() {
     });
   };
 
-  const handleItemChange = (e) => {
-    const { value, checked } = e.target;
-    const newItems = checked
-      ? [...formData.items, value]
-      : formData.items.filter((item) => item !== value);
+  const handleItemChange = (id, value) => {
     setFormData({
       ...formData,
-      items: newItems,
+      items: {
+        ...formData.items,
+        [id]: value,
+      },
     });
+  };
+
+  const calculateTotal = () => {
+    return itemsList.reduce((total, item) => {
+      const quantity = formData.items[item.id] || 0;
+      return total + item.price * quantity;
+    }, 0);
   };
 
   const handleSubmit = (e) => {
@@ -101,16 +107,18 @@ function OrderOnline() {
         </label>
         <fieldset>
           <legend>Select Items:</legend>
-          {items.map((item) => (
+          {itemsList.map((item) => (
             <label key={item.id}>
-              <input
-                type="checkbox"
-                name="items"
-                value={item.name}
-                checked={formData.items.includes(item.name)}
-                onChange={handleItemChange}
-              />
               {item.name} - ${item.price}
+              <input
+                type="number"
+                min="0"
+                name={item.name}
+                value={formData.items[item.id] || 0}
+                onChange={(e) =>
+                  handleItemChange(item.id, Number(e.target.value))
+                }
+              />
             </label>
           ))}
         </fieldset>
@@ -122,6 +130,7 @@ function OrderOnline() {
             onChange={handleChange}
           ></textarea>
         </label>
+        <h2>Total Price: ${calculateTotal()}</h2>
         <button type="submit">Submit Order</button>
       </form>
     </div>
