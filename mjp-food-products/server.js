@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const stripe = require("stripe")("YOUR_STRIPE_SECRET_KEY");
 
 const app = express();
 const PORT = 5000;
@@ -25,6 +26,7 @@ const orderSchema = new mongoose.Schema({
   items: Object,
   instructions: String,
   totalPrice: Number,
+  paymentStatus: String,
 });
 
 const Order = mongoose.model("Order", orderSchema);
@@ -37,6 +39,22 @@ app.post("/api/orders", async (req, res) => {
     res.status(201).send(order);
   } catch (error) {
     res.status(400).send(error);
+  }
+});
+
+app.post("/api/create-payment-intent", async (req, res) => {
+  const { totalPrice } = req.body;
+
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: totalPrice * 100, // Stripe amount is in cents
+      currency: "usd",
+    });
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 });
 
