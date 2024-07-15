@@ -1,19 +1,16 @@
 import React from "react";
-import "../style/Home.css";
-import Header from "./Header";
-import Footer from "./Footer";
-import kottu from "../images/kottu.jpeg";
-import parata from "../images/parata.jpeg";
-import godamba from "../images/godamba.jpeg";
-import cake from "../images/cake.jpeg";
-import banner from "../images/download.jpeg";
+import "./test.css";
 
 function Home() {
   return (
     <div className="home">
-      <Header />
       <div className="banner">
-        <img src={banner} alt="Delicious Food Banner" />
+        <img src="/path-to-your-banner-image.jpg" alt="Delicious Food Banner" />
+        <div className="banner-text">
+          <h1>MJP Food Products</h1>
+          <p>Delicious and Authentic Sri Lankan Cuisine</p>
+          <button>Explore Menu</button>
+        </div>
       </div>
       <section className="introduction">
         <h1>Welcome to MJP Food Products</h1>
@@ -28,7 +25,7 @@ function Home() {
         <h2>Featured Items</h2>
         <div className="items">
           <div className="item">
-            <img src={kottu} alt="Kottu" />
+            <img src="/path-to-kottu-image.jpg" alt="Kottu" />
             <h3>Kottu</h3>
             <p>
               A popular Sri Lankan dish made with chopped flatbread, vegetables,
@@ -36,7 +33,7 @@ function Home() {
             </p>
           </div>
           <div className="item">
-            <img src={cake} alt="Cake" />
+            <img src="/path-to-cake-image.jpg" alt="Cake" />
             <h3>Cake</h3>
             <p>
               Our cakes are known for their rich flavor and moist texture,
@@ -44,7 +41,7 @@ function Home() {
             </p>
           </div>
           <div className="item">
-            <img src={parata} alt="Parata" />
+            <img src="/path-to-parata-image.jpg" alt="Parata" />
             <h3>Parata</h3>
             <p>
               Flaky and delicious, our paratas are a must-try for lovers of
@@ -52,8 +49,8 @@ function Home() {
             </p>
           </div>
           <div className="item">
-            <img src={godamba} alt="Godamba Roti" />
-            <h3>Godamba Roti</h3>
+            <img src="/path-to-roti-image.jpg" alt="Gothamba Roti" />
+            <h3>Gothamba Roti</h3>
             <p>
               A traditional Sri Lankan flatbread, perfect to accompany any spicy
               dish.
@@ -61,7 +58,6 @@ function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

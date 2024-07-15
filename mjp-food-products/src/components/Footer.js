@@ -1,5 +1,10 @@
 import React from "react";
 import "../style/Footer.css";
+import fb from "../images/fb.png";
+import inster from "../images/inster.png";
+import utube from "../images/Youtube.png";
+import phone from "../images/tele.png";
+import email from "../images/emaill.png";
 
 function Footer() {
   return (
@@ -7,14 +12,15 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p>
-            Email:{" "}
+          <p className="para">
+            <img src={email} alt="email" />{" "}
             <a href="mailto:info@mjpfoodproducts.com">
-              info@mjpfoodproducts.com
+              mjpfoodproducts@gmail.com
             </a>
           </p>
           <p>
-            Phone: <a href="tel:+1234567890">+1 234 567 890</a>
+            <img src={phone} alt="phone" />{" "}
+            <a href="tel:+1234567890">070 661 6049</a>
           </p>
         </div>
         <div className="footer-section">
@@ -25,21 +31,21 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/path-to-facebook-icon.png" alt="Facebook" />
+              <img src={fb} alt="Facebook" />
             </a>
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/path-to-instagram-icon.png" alt="Instagram" />
+              <img src={inster} alt="Instagram" />
             </a>
             <a
               href="https://www.youtube.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/path-to-youtube-icon.png" alt="YouTube" />
+              <img src={utube} alt="YouTube" />
             </a>
           </div>
         </div>

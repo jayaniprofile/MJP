@@ -3,6 +3,7 @@ import "../style/About.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import ceo from "../images/ayya.jpg";
+import ceo1 from "../images/ayya1.png";
 
 function About() {
   return (
@@ -56,7 +57,7 @@ function About() {
         <h2>Our Team</h2>
         <div className="team-members">
           <div className="team-member">
-            <img src={ceo} alt="Team Member 1" />
+            <img src={ceo1} alt="Team Member 1" />
             <h3>Madushan Nishshanka</h3>
             <p>Founder & CEO</p>
           </div>

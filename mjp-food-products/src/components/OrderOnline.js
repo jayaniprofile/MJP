@@ -7,6 +7,8 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import "../style/OrderOnline.css";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const stripePromise = loadStripe("YOUR_STRIPE_PUBLIC_KEY");
 
@@ -88,6 +90,7 @@ function OrderOnline() {
 
   return (
     <Elements stripe={stripePromise}>
+      <Header />
       <div className="order-online">
         <h1>Order Online</h1>
         <form onSubmit={handleSubmit}>
@@ -174,6 +177,7 @@ function OrderOnline() {
         </form>
         {clientSecret && <StripePaymentForm clientSecret={clientSecret} />}
       </div>
+      <Footer />
     </Elements>
   );
 }

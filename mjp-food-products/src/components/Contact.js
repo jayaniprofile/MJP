@@ -21,7 +21,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, message } = formData;
-    const whatsappNumber = "94706616049"; // Your WhatsApp number in international format without the plus sign
+    const whatsappNumber = "94711234567"; // Your WhatsApp number in international format without the plus sign
     const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       whatsappMessage
