@@ -6,7 +6,7 @@ import kottu from "../images/kottu.jpeg";
 import parata from "../images/parata.jpeg";
 import godamba from "../images/godamba.jpeg";
 import cake from "../images/cake.jpeg";
-import banner from "../images/download.jpeg";
+import banner from "../images/ho.png";
 
 function Home() {
   return (
