@@ -12,6 +12,7 @@ import icing from "../images/icing.jpeg";
 import sw1 from "../images/sw1.jpeg";
 import pre1 from "../images/pre1.jpeg";
 import lasagna from "../images/lasagna.jpeg";
+import MenuBanner from "../images/MenuBanner.png";
 
 const items = {
   sweets: [
@@ -74,6 +75,9 @@ function Menu() {
   return (
     <div className="menu">
       <Header />
+      <div className="about-banner">
+        <img src={MenuBanner} alt="About MJP Food Products" />
+      </div>
       <h1>Our Menu</h1>
       <div className="categories">
         <div className="category" onClick={() => setSelectedCategory("sweets")}>
