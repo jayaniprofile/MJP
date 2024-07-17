@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../style/Contact.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import contact from "../images/contactBanner.png";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -33,13 +34,10 @@ function Contact() {
     <div className="contact">
       <Header />
       <div className="contact-banner">
-        <img
-          src="/path-to-your-contact-banner-image.jpg"
-          alt="Contact MJP Food Products"
-        />
+        <img src={contact} alt="Contact MJP Food Products" />
       </div>
       <section className="contact-info">
-        <h1>Contact Us</h1>
+        <h1>Get in Touch</h1>
         <p>
           We'd love to hear from you! Whether you have a question about our
           products, feedback, or just want to say hello, feel free to reach out
@@ -83,7 +81,7 @@ function Contact() {
           </form>
         </div>
         <div className="contact-info-details">
-          <h2>Get in Touch</h2>
+          <h2>Reach Out</h2>
           <p>
             <strong>Phone:</strong> 070 661 6049
           </p>
