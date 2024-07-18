@@ -26,11 +26,14 @@ function OrderOnline() {
   const [clientSecret, setClientSecret] = useState("");
 
   const itemsList = [
-    { id: 1, name: "Kottu", price: 5 },
-    { id: 2, name: "Parata", price: 2 },
-    { id: 3, name: "Gothamba Roti", price: 1 },
-    { id: 4, name: "Chocolate Cake", price: 10 },
-    { id: 5, name: "Butter Cake", price: 8 },
+    { id: 1, name: "Kottu", price: 300 },
+    { id: 2, name: "Parata", price: 300 },
+    { id: 3, name: "Godamba Roti", price: 300 },
+    { id: 4, name: "Lasagna Sheet", price: 300 },
+    { id: 5, name: "Chocolate Cake", price: 2000 },
+    { id: 6, name: "Butter Cake", price: 1500 },
+    { id: 7, name: "Cup Cake", price: 200 },
+    { id: 8, name: "Icing Cake", price: 5000 },
   ];
 
   const handleChange = (e) => {
@@ -150,7 +153,7 @@ function OrderOnline() {
             {itemsList.map((item) => (
               <label key={item.id} className="item-label">
                 <span>
-                  {item.name} - ${item.price}
+                  {item.name} - Rs: {item.price}
                 </span>
                 <input
                   type="number"
@@ -172,7 +175,7 @@ function OrderOnline() {
               onChange={handleChange}
             ></textarea>
           </label>
-          <h2>Total Price: ${calculateTotal()}</h2>
+          <h2>Total Price: Rs: {calculateTotal()}</h2>
           <button type="submit">Submit Order</button>
         </form>
         {clientSecret && <StripePaymentForm clientSecret={clientSecret} />}
