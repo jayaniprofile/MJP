@@ -36,14 +36,6 @@ function Home() {
             </p>
           </div>
           <div className="item">
-            <img src={cake} alt="Cake" />
-            <h3>Cake</h3>
-            <p>
-              Our cakes are known for their rich flavor and moist texture,
-              perfect for any occasion.
-            </p>
-          </div>
-          <div className="item">
             <img src={parata} alt="Parata" />
             <h3>Parata</h3>
             <p>
@@ -57,6 +49,14 @@ function Home() {
             <p>
               A traditional Sri Lankan flatbread, perfect to accompany any spicy
               dish.
+            </p>
+          </div>
+          <div className="item">
+            <img src={cake} alt="Cake" />
+            <h3>Cake</h3>
+            <p>
+              Our cakes are known for their rich flavor and moist texture,
+              perfect for any occasion.
             </p>
           </div>
         </div>

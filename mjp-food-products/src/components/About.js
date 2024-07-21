@@ -55,7 +55,7 @@ function About() {
         <h2>Our Lead</h2>
         <div className="team-members">
           <div className="team-member">
-            <img src={ceo1} alt="Team Member 1" />
+            <img src={ceo} alt="Team Member 1" />
             <h3>Madushan Nishshanka</h3>
             <p>Founder & CEO</p>
           </div>
