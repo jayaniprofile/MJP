@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const stripe = require("stripe")("YOUR_STRIPE_SECRET_KEY");
+const nodemailer = require("nodemailer");
 
 const app = express();
 const PORT = 5000;
@@ -31,30 +31,46 @@ const orderSchema = new mongoose.Schema({
 
 const Order = mongoose.model("Order", orderSchema);
 
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  auth: {
+    user: "your-email@gmail.com",
+    pass: "your-email-password",
+  },
+});
+
 // Routes
 app.post("/api/orders", async (req, res) => {
   try {
     const order = new Order(req.body);
     await order.save();
-    res.status(201).send(order);
+
+    // Send email notification
+    const mailOptions = {
+      from: "your-email@gmail.com",
+      to: "mjpfoodproducts@gmail.com",
+      subject: "New Order Received",
+      text: `
+        Name: ${order.name}
+        Email: ${order.email}
+        Address: ${order.address}
+        Phone: ${order.phone}
+        Pickup/Delivery: ${order.pickupOrDelivery}
+        Items: ${JSON.stringify(order.items, null, 2)}
+        Instructions: ${order.instructions}
+        Total Price: Rs: ${order.totalPrice}
+      `,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.status(500).send(error.toString());
+      }
+      res.status(201).send(order);
+    });
   } catch (error) {
     res.status(400).send(error);
-  }
-});
-
-app.post("/api/create-payment-intent", async (req, res) => {
-  const { totalPrice } = req.body;
-
-  try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: totalPrice * 100, // Stripe amount is in cents
-      currency: "usd",
-    });
-    res.send({
-      clientSecret: paymentIntent.client_secret,
-    });
-  } catch (error) {
-    res.status(400).send(error.message);
   }
 });
 
