@@ -3,16 +3,17 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/mjp-orders", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -26,7 +27,6 @@ const orderSchema = new mongoose.Schema({
   items: Object,
   instructions: String,
   totalPrice: Number,
-  paymentStatus: String,
 });
 
 const Order = mongoose.model("Order", orderSchema);
@@ -35,8 +35,8 @@ const Order = mongoose.model("Order", orderSchema);
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
-    user: "your-email@gmail.com",
-    pass: "your-email-password",
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -46,21 +46,25 @@ app.post("/api/orders", async (req, res) => {
     const order = new Order(req.body);
     await order.save();
 
-    // Send email notification
+    // Prepare email content
+    const orderDetails = `
+      Name: ${order.name}
+      Email: ${order.email}
+      Address: ${order.address}
+      Phone: ${order.phone}
+      Pickup/Delivery: ${order.pickupOrDelivery}
+      Items: ${JSON.stringify(order.items, null, 2)}
+      Instructions: ${order.instructions}
+      Total Price: Rs: ${order.totalPrice}
+    `;
+
+    // Send email notification to the owner
     const mailOptions = {
-      from: "your-email@gmail.com",
-      to: "mjpfoodproducts@gmail.com",
+      from: process.env.EMAIL_USER, // The owner's email
+      to: "jayanipathirana100@gmail.com", // Owner's email
       subject: "New Order Received",
-      text: `
-        Name: ${order.name}
-        Email: ${order.email}
-        Address: ${order.address}
-        Phone: ${order.phone}
-        Pickup/Delivery: ${order.pickupOrDelivery}
-        Items: ${JSON.stringify(order.items, null, 2)}
-        Instructions: ${order.instructions}
-        Total Price: Rs: ${order.totalPrice}
-      `,
+      replyTo: order.email, // Customer's email for direct replies
+      text: orderDetails,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
