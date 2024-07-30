@@ -1,16 +1,7 @@
 import React, { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import {
-  Elements,
-  CardElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
 import "../style/OrderOnline.css";
 import Footer from "./Footer";
 import Header from "./Header";
-
-const stripePromise = loadStripe("YOUR_STRIPE_PUBLIC_KEY");
 
 function OrderOnline() {
   const [formData, setFormData] = useState({
@@ -22,8 +13,6 @@ function OrderOnline() {
     items: {},
     instructions: "",
   });
-
-  const [clientSecret, setClientSecret] = useState("");
 
   const itemsList = [
     { id: 1, name: "Kottu", price: 300 },
@@ -81,8 +70,6 @@ function OrderOnline() {
 
       if (response.ok) {
         alert("Order Submitted Successfully!");
-        const { clientSecret } = await response.json();
-        setClientSecret(clientSecret);
       } else {
         alert("Failed to submit order");
       }
@@ -92,7 +79,7 @@ function OrderOnline() {
   };
 
   return (
-    <Elements stripe={stripePromise}>
+    <>
       <Header />
       <div className="order-online">
         <h1>Order Online</h1>
@@ -178,49 +165,9 @@ function OrderOnline() {
           <h2>Total Price: Rs: {calculateTotal()}</h2>
           <button type="submit">Submit Order</button>
         </form>
-        {clientSecret && <StripePaymentForm clientSecret={clientSecret} />}
       </div>
       <Footer />
-    </Elements>
-  );
-}
-
-function StripePaymentForm({ clientSecret }) {
-  const stripe = useStripe();
-  const elements = useElements();
-
-  const handlePaymentSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!stripe || !elements) {
-      return;
-    }
-
-    const result = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-        billing_details: {
-          name: "Jenny Rosen",
-        },
-      },
-    });
-
-    if (result.error) {
-      console.log(result.error.message);
-    } else {
-      if (result.paymentIntent.status === "succeeded") {
-        console.log("Payment succeeded!");
-      }
-    }
-  };
-
-  return (
-    <form onSubmit={handlePaymentSubmit}>
-      <CardElement />
-      <button type="submit" disabled={!stripe}>
-        Pay
-      </button>
-    </form>
+    </>
   );
 }
 
