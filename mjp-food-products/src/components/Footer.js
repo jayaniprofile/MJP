@@ -14,8 +14,8 @@ function Footer() {
           <h3>Contact Us</h3>
           <p className="para">
             <img src={email} alt="email" />{" "}
-            <a href="mailto:info@mjpfoodproducts.com">
-              mjpfoodproducts@gmail.com
+            <a href="mailto:info@mjsfoodproducts.com">
+              mjsfoodproducts@gmail.com
             </a>
           </p>
           <p>
@@ -50,7 +50,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-section">
-          <h3>About MJP Food Products</h3>
+          <h3>About MJS Food Products</h3>
           <p>
             We provide the finest selection of sweets and pre-made foods crafted
             with the highest quality ingredients. Experience the taste of
@@ -59,7 +59,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 MJP Food Products. All rights reserved.</p>
+        <p>&copy; 2024 MJS Food Products. All rights reserved.</p>
       </div>
     </footer>
   );

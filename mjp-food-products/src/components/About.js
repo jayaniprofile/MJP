@@ -11,12 +11,12 @@ function About() {
     <div className="about">
       <Header />
       <div className="about-banner">
-        <img src={banner} alt="About MJP Food Products" />
+        <img src={banner} alt="About MJS Food Products" />
       </div>
       <section className="about-content">
-        <h1>Insight of MJP Food Products</h1>
+        <h1>Insight of MJS Food Products</h1>
         <p>
-          MJP Food Products was established with a passion for providing
+          MJS Food Products was established with a passion for providing
           high-quality, delicious food to our community. Our mission is to bring
           joy to our customers through our carefully crafted sweets and pre-made
           foods.

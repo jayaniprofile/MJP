@@ -86,7 +86,7 @@ function Contact() {
             <strong>Phone:</strong> 070 661 6049
           </p>
           <p>
-            <strong>Email:</strong> mjpfoodproducts@gmail.com
+            <strong>Email:</strong> mjsfoodproducts@gmail.com
           </p>
           <div className="social-media">
             <a

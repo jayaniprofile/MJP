@@ -6,7 +6,7 @@ import kottu from "../images/kottu.jpeg";
 import parata from "../images/parata.jpeg";
 import godamba from "../images/godamba.jpeg";
 import cake from "../images/cake.jpeg";
-import banner from "../images/ho.png";
+import banner from "../images/home1.png";
 
 function Home() {
   return (
@@ -16,9 +16,9 @@ function Home() {
         <img src={banner} alt="Delicious Food Banner" />
       </div>
       <section className="introduction">
-        <h1>Welcome to MJP Food Products</h1>
+        <h1>Welcome to MJS Food Products</h1>
         <p>
-          At MJP Food Products, we are dedicated to bringing you the finest
+          At MJS Food Products, we are dedicated to bringing you the finest
           selection of delicious sweets and spicy dishes. Our offerings are
           crafted with the highest quality ingredients to ensure a delightful
           culinary experience.

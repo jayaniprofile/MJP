@@ -5,7 +5,7 @@ import "../style/Header.css"; // Import the CSS file
 function Header() {
   return (
     <header className="header">
-      <div className="logo">MJP Food Products</div>
+      <div className="logo">MJS Food Products</div>
       <nav>
         <ul className="nav-links">
           <li>
