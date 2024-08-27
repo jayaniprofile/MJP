@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/MJP/static/css/main.f43f549d.css",
+    "main.js": "/MJP/static/js/main.81cd2ea5.js",
+    "static/js/453.0e4b541e.chunk.js": "/MJP/static/js/453.0e4b541e.chunk.js",
+    "static/media/home1.png": "/MJP/static/media/home1.fde2027df716801c391e.png",
+    "static/media/MenuBanner.png": "/MJP/static/media/MenuBanner.0d26b95a749f756fde1a.png",
+    "static/media/aboutBanner.png": "/MJP/static/media/aboutBanner.a4e0e425b9ebf6bcf499.png",
+    "static/media/contactBanner.png": "/MJP/static/media/contactBanner.ddffc79c4e87baa88b8c.png",
+    "static/media/ayya1.png": "/MJP/static/media/ayya1.335d75852c39d164cd6a.png",
+    "static/media/ayya.jpg": "/MJP/static/media/ayya.8eb11fb88fd6df02ae20.jpg",
+    "static/media/sw1.jpeg": "/MJP/static/media/sw1.3d9dea28a9124fd32ab6.jpeg",
+    "static/media/cake.jpeg": "/MJP/static/media/cake.b7c1040e8b15e1aa857e.jpeg",
+    "static/media/pre1.jpeg": "/MJP/static/media/pre1.5e8a48edacbe7bdb0a4f.jpeg",
+    "index.html": "/MJP/index.html",
+    "main.f43f549d.css.map": "/MJP/static/css/main.f43f549d.css.map",
+    "main.81cd2ea5.js.map": "/MJP/static/js/main.81cd2ea5.js.map",
+    "453.0e4b541e.chunk.js.map": "/MJP/static/js/453.0e4b541e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f43f549d.css",
+    "static/js/main.81cd2ea5.js"
+  ]
+}
