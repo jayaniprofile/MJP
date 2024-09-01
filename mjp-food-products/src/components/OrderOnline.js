@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../style/OrderOnline.css";
 import Footer from "./Footer";
-import Header from "./Header";
+import Header from "./Header/Header";
 
 function OrderOnline() {
   const [formData, setFormData] = useState({

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../style/Contact.css";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Footer from "./Footer";
 import contact from "../images/contactBanner.png";
 
@@ -25,14 +25,13 @@ function Contact() {
     const whatsappNumber = "04706616049"; // Your WhatsApp number in international format without the plus sign
     const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      whatsappMessage
+      whatsappMessage,
     )}`;
     window.open(whatsappUrl, "_blank");
   };
 
   return (
     <div className="contact">
-      <Header />
       <div className="contact-banner">
         <img src={contact} alt="Contact MJP Food Products" />
       </div>
@@ -125,7 +124,6 @@ function Contact() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

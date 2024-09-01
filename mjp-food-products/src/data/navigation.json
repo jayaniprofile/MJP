@@ -1,0 +1,24 @@
+{
+  "navigation": [
+    {
+      "title": "Home",
+      "link": "/home"
+    },
+    {
+      "title": "Menu",
+      "link": "/menu"
+    },
+    {
+      "title": "About",
+      "link": "/about"
+    },
+    {
+      "title": "Contact",
+      "link": "/contact"
+    },
+    {
+      "title": "Order online",
+      "link": "/order-online"
+    }
+  ]
+}

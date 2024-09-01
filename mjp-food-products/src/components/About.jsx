@@ -1,19 +1,17 @@
 import React from "react";
 import "../style/About.css";
-import Footer from "./Footer";
-import Header from "./Header";
 import ceo from "../images/ayya.jpg";
 import ceo1 from "../images/ayya1.png";
 import banner from "../images/aboutBanner.png";
+import {AboutContentStyled, AboutStyled} from "./About.styled";
 
 function About() {
   return (
-    <div className="about">
-      <Header />
+    <AboutStyled>
       <div className="about-banner">
         <img src={banner} alt="About MJS Food Products" />
       </div>
-      <section className="about-content">
+      <AboutContentStyled>
         <h1>Insight of MJS Food Products</h1>
         <p>
           MJS Food Products was established with a passion for providing
@@ -32,7 +30,7 @@ function About() {
           satisfaction. We look forward to continuing to serve you with our
           exceptional food offerings.
         </p>
-      </section>
+      </AboutContentStyled>
       <section className="mission-vision">
         <div className="mission">
           <h2>Our Mission</h2>
@@ -61,8 +59,7 @@ function About() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </AboutStyled>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/Home.css";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Footer from "./Footer";
 import kottu from "../images/kottu.jpeg";
 import parata from "../images/parata.jpeg";
@@ -11,7 +11,6 @@ import banner from "../images/home1.png";
 function Home() {
   return (
     <div className="home">
-      <Header />
       <div className="banner">
         <img src={banner} alt="Delicious Food Banner" />
       </div>
@@ -61,7 +60,6 @@ function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
