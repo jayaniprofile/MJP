@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import "../style/Menu.css";
-import Header from "./Header/Header";
-import Footer from "./Footer";
-import sw1 from "../images/sw1.jpeg";
-import pre1 from "../images/pre1.jpeg";
-import MenuBanner from "../images/MenuBanner.png";
-import { menuItems, menuCategories } from "../common/content";
+
+import MenuBanner from "../../images/MenuBanner.png";
+import { menuItems, menuCategories } from "../../common/content";
+import { MenuStyled } from "./Menu.styled";
 
 function Menu() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -25,9 +22,9 @@ function Menu() {
     );
   };
   return (
-    <div className="menu">
-      <div className="about-banner">
-        <img src={MenuBanner} alt="About MJP Food Products" />
+    <MenuStyled>
+      <div className="menu-banner">
+        <img src={MenuBanner} alt="Menu MJP Food Products" />
       </div>
       <h1>Our Menu</h1>
       <div className="categories">
@@ -56,7 +53,7 @@ function Menu() {
           ))}
         </div>
       )}
-    </div>
+    </MenuStyled>
   );
 }
 

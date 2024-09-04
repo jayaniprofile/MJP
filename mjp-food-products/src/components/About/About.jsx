@@ -1,8 +1,7 @@
 import React from "react";
-import "../style/About.css";
-import ceo from "../images/ayya.jpg";
-import ceo1 from "../images/ayya1.png";
-import banner from "../images/aboutBanner.png";
+import ceo from "../../images/ayya.jpg";
+import ceo1 from "../../images/ayya1.png";
+import banner from "../../images/aboutBanner.png";
 import {AboutContentStyled, AboutStyled} from "./About.styled";
 
 function About() {
