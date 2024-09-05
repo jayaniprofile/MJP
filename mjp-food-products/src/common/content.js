@@ -6,6 +6,7 @@ import kottu from "../images/kottu.jpeg";
 import godamba from "../images/godamba.jpeg";
 import parata from "../images/parata.jpeg";
 import lasagna from "../images/lasagna.jpeg";
+import cake from "../images/cake.jpeg";
 
 export const menuItems = {
   sweets: [
@@ -74,5 +75,32 @@ export const menuCategories = [
     image: require("../images/pre1.jpeg"),
     altText: "Pre-made Foods",
     title: "Pre-made Foods",
+  },
+];
+
+export const homeItems = [
+  {
+    name: "Kottu",
+    description:
+      "A popular Sri Lankan dish made with chopped flatbread, vegetables, and spices.",
+    img: kottu,
+  },
+  {
+    name: "Parata",
+    description:
+      "Flaky and delicious, our paratas are a must-try for lovers of spicy food.",
+    img: parata,
+  },
+  {
+    name: "Godamba Roti",
+    description:
+      "A traditional Sri Lankan flatbread, perfect to accompany any spicy dish.",
+    img: godamba,
+  },
+  {
+    name: "Cake",
+    description:
+      "Our cakes are known for their rich flavor and moist texture, perfect for any occasion.",
+    img: cake,
   },
 ];

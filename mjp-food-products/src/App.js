@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Menu from "./components/Menu/Menu";
 import About from "./components/About/About";
-import Contact from "./components/Contact";
+import Contact from "./components/Contacts/Contact";
 import OrderOnline from "./components/OrderOnline";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <div className="main">
         <Header />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/home" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

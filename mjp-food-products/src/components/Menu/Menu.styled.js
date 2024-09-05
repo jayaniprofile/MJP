@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoint } from "../../utils/breakpoints";
 
 export const MenuStyled = styled.div`
   font-family: "Poppins", sans-serif;
