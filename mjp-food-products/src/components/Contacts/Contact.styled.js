@@ -117,5 +117,15 @@ export const ContactStyled = styled.div`
 
   .contact-info-details .map {
     margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures the map stays within the rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      border-radius: 10px; /* Rounded corners for the map */
+    }
   }
 `;
