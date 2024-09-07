@@ -6,7 +6,7 @@ import Home from "./components/Home/Home";
 import Menu from "./components/Menu/Menu";
 import About from "./components/About/About";
 import Contact from "./components/Contacts/Contact";
-import OrderOnline from "./components/OrderOnline";
+import OrderOnline from "./components/OrderOnline/OrderOnline";
 
 function App() {
   return (

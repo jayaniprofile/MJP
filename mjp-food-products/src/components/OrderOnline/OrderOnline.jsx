@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "../style/OrderOnline.css";
-import Footer from "./Footer";
-import Header from "./Header/Header";
+import { OrderOnlineStyled } from "./Order.styled";
 
 function OrderOnline() {
   const [formData, setFormData] = useState({
@@ -80,8 +78,7 @@ function OrderOnline() {
 
   return (
     <>
-      <Header />
-      <div className="order-online">
+      <OrderOnlineStyled>
         <h1>Order Online</h1>
         <form onSubmit={handleSubmit}>
           <label>
@@ -165,8 +162,7 @@ function OrderOnline() {
           <h2>Total Price: Rs: {calculateTotal()}</h2>
           <button type="submit">Submit Order</button>
         </form>
-      </div>
-      <Footer />
+      </OrderOnlineStyled>
     </>
   );
 }
