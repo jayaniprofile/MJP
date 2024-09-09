@@ -9,24 +9,24 @@ export const HomeStyled = styled.div`
   .banner img {
     width: 100%;
     height: auto;
-    max-height: 600px;
+    max-height: 37.5 rem;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0.625 rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     animation: slideIn 1s ease-in-out;
   }
 
   .introduction {
-    padding: 20px;
+    padding: 1.25rem;
     background-color: #f9f9f9;
-    margin-top: 20px;
-    border-top: 5px solid #ff6347; /* Tomato color */
+    margin-top: 1.25rem;
+    border-top: 0.313rem solid #ff6347; /* Tomato color */
     animation: fadeIn 1s ease-in-out;
 
     h1 {
       font-size: 2.5em;
       color: #ff6347; /* Tomato color */
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
 
     p {
@@ -38,13 +38,13 @@ export const HomeStyled = styled.div`
   }
 
   .featured-items {
-    padding: 20px;
-    margin-top: 40px;
+    padding: 1.25rem;
+    margin-top: 2.5rem;
 
     h2 {
       font-size: 2em;
       color: #ff6347; /* Tomato color */
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
       animation: fadeIn 1s ease-in-out;
     }
   }
@@ -53,15 +53,15 @@ export const HomeStyled = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1.25rem;
     animation: fadeInUp 1s ease-in-out;
   }
 
   .item {
-    margin: 10px;
-    width: 220px;
+    margin: 0.625rem;
+    width: 13.75rem;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
@@ -71,13 +71,13 @@ export const HomeStyled = styled.div`
 
     img {
       width: 100%;
-      height: 150px;
+      height: 9.375rem;
       object-fit: cover;
     }
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     }
     h3 {
       font-size: 1.5em;
@@ -86,7 +86,7 @@ export const HomeStyled = styled.div`
     }
 
     p {
-      padding: 0 10px 10px 10px;
+      padding: 0 0.625rem 0.625rem 0.625rem;
       font-size: 1em;
       color: #666;
     }

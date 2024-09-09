@@ -25,18 +25,18 @@ export const MenuStyled = styled.div`
   .categories {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
   }
 
   .category {
     cursor: pointer;
     text-align: center;
-    width: 220px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    width: 13.75rem;
+    border: 0.063rem solid #ddd;
+    border-radius: 0.625rem;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     transition:
       transform 0.3s,
       box-shadow 0.3s;
