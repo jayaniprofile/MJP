@@ -6,8 +6,8 @@ export const MenuStyled = styled.div`
   color: #333;
 
   h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
     color: #ff6347;
     text-align: center;
   }
@@ -33,7 +33,7 @@ export const MenuStyled = styled.div`
     cursor: pointer;
     text-align: center;
     width: 13.75rem;
-    border: 0.063rem solid #ddd;
+    border: 0.063rem solid #ddd; /* Retained as px for precision */
     border-radius: 0.625rem;
     overflow: hidden;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
@@ -43,23 +43,23 @@ export const MenuStyled = styled.div`
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     }
 
     &.selected {
-      border: 1px solid #f00;
+      border: 0.063rem solid #f00; /* Retained as px for precision */
       cursor: default;
     }
 
     img {
       width: 100%;
-      height: 150px;
+      height: 9.375rem;
       object-fit: cover;
     }
 
     h2 {
-      font-size: 1.5em;
-      margin: 10px 0;
+      font-size: 1.5rem;
+      margin: 0.625rem 0;
       color: #ff6347;
     }
   }
@@ -69,17 +69,17 @@ export const MenuStyled = styled.div`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1.25rem;
     animation: fadeIn 0.5s ease-in-out;
   }
 
   .item {
-    width: 220px;
+    width: 13.75rem;
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: 0.063rem solid #ddd; /* Retained as px for precision */
+    border-radius: 0.625rem;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     background-color: white;
     transition:
       transform 0.3s,
@@ -87,40 +87,41 @@ export const MenuStyled = styled.div`
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     }
 
     img {
       width: 100%;
-      height: 150px;
+      height: 9.375rem;
       object-fit: cover;
     }
 
     .item-info {
-      padding: 10px;
+      padding: 0.625rem;
 
       h3 {
-        font-size: 1.2em;
-        margin: 10px 0;
+        font-size: 1.2rem;
+        margin: 0.625rem 0;
       }
 
       p {
-        font-size: 1em;
-        margin: 5px 0;
+        font-size: 1rem;
+        margin: 0.3125rem 0;
       }
 
       .price {
         font-weight: bold;
         color: #ff6347; /* Tomato color */
-        font-size: 1.2em;
+        font-size: 1.2rem;
       }
     }
   }
+
   /* Animation styles */
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(1.25rem);
     }
     to {
       opacity: 1;

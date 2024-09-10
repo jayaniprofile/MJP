@@ -1,5 +1,5 @@
 import React from "react";
-import banner from "../../images/home1.png";
+import banner from "../../images/hoo.png";
 import { HomeStyled } from "./Home.styled";
 import { homeItems } from "../../common/content";
 

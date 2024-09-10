@@ -4,7 +4,7 @@ import { breakpoint } from "../../utils/breakpoints";
 export const FooterStyled = styled.div`
   background-color: #333;
   color: white;
-  padding: 40px 0;
+  padding: 2.5rem 0;
   text-align: center;
   font-family: "Poppins", sans-serif;
 
@@ -12,23 +12,23 @@ export const FooterStyled = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   .footer-section {
-    max-width: 300px;
-    margin: 20px 0;
+    max-width: 18.75rem;
+    margin: 1.25rem 0;
 
     h3 {
       color: #ff6347; /* Tomato color */
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
 
     p,
     a {
       color: white;
       text-decoration: none;
-      margin: 5px 0;
+      margin: 0.3125rem 0;
     }
 
     a:hover {
@@ -40,16 +40,16 @@ export const FooterStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375rem;
 
     a {
-      margin: 0 10px;
+      margin: 0 0.625rem;
       display: inline-block;
     }
 
     img {
-      width: 30px;
-      height: 30px;
+      width: 1.875rem;
+      height: 1.875rem;
       transition:
         transform 0.3s,
         filter 0.3s;
@@ -62,17 +62,18 @@ export const FooterStyled = styled.div`
   }
 
   .footer-bottom {
-    border-top: 1px solid #555;
-    padding-top: 10px;
+    border-top: 0.0625rem solid #555;
+    padding-top: 0.625rem;
 
     p {
       margin: 0;
-      font-size: 0.9em;
+      font-size: 0.9rem;
     }
   }
 
   /* Responsive styles */
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
+    /* 768px in rem */
     .footer-content {
       flex-direction: column;
       align-items: center;

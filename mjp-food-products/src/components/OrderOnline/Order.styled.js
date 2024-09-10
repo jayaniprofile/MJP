@@ -3,17 +3,17 @@ import { breakpoint } from "../../utils/breakpoints";
 
 export const OrderOnlineStyled = styled.div`
   font-family: Arial, sans-serif;
-  max-width: 800px;
+  max-width: 50rem; /* 800px */
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 
   h1 {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.5em;
+    margin-bottom: 1.25rem;
+    font-size: 2.5rem;
     color: #ff6347; /* Tomato color */
   }
 
@@ -23,8 +23,8 @@ export const OrderOnlineStyled = styled.div`
   }
 
   label {
-    margin-bottom: 10px;
-    font-size: 1.1em;
+    margin-bottom: 0.625rem;
+    font-size: 1.1rem;
   }
 
   input[type="text"],
@@ -33,58 +33,58 @@ export const OrderOnlineStyled = styled.div`
   select,
   textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1em;
+    padding: 0.625rem;
+    margin-top: 0.3125rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.25rem;
+    font-size: 1rem;
   }
 
   fieldset {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    margin-bottom: 0.9375rem;
+    padding: 0.625rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.25rem;
   }
 
   legend {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 0.625rem;
   }
 
   .item-label {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 
     span {
       flex: 1;
     }
 
     input[type="number"] {
-      width: 60px;
-      margin-left: 10px;
+      width: 3.75rem;
+      margin-left: 0.625rem;
     }
   }
 
   textarea {
     resize: vertical;
-    height: 100px;
+    height: 6.25rem;
   }
 
   h2 {
     text-align: center;
-    margin-top: 20px;
-    font-size: 1.5em;
+    margin-top: 1.25rem;
+    font-size: 1.5rem;
   }
 
   button {
-    padding: 15px;
+    padding: 0.9375rem;
     background-color: #ff6347; /* Tomato color */
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 1.2em;
+    border-radius: 0.25rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 

@@ -5,24 +5,25 @@ export const HeaderStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #ff6347; /* Tomato color */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 
   .logo {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: bold;
     color: white;
   }
 
   .abc {
-    width: 100px;
-    height: 50px;
+    width: 6.25rem;
+    height: 3.125rem;
   }
+
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
 
     li {
       display: inline;
@@ -32,7 +33,7 @@ export const HeaderStyled = styled.div`
       text-decoration: none;
       color: white;
       font-weight: bold;
-      padding: 10px 15px;
+      padding: 0.625rem 0.9375rem;
       transition:
         background-color 0.3s,
         color 0.3s;
@@ -40,14 +41,15 @@ export const HeaderStyled = styled.div`
       &:hover {
         background-color: white;
         color: #ff6347; /* Tomato color */
-        border-radius: 5px;
+        border-radius: 0.3125rem;
       }
     }
   }
 
   /* Responsive styles */
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
+    /* 768px in rem */
     .header {
       flex-direction: column;
       align-items: flex-start;
@@ -56,7 +58,7 @@ export const HeaderStyled = styled.div`
     .nav-links {
       flex-direction: column;
       width: 100%;
-      gap: 10px;
+      gap: 0.625rem;
     }
 
     .nav-links li {
@@ -66,26 +68,27 @@ export const HeaderStyled = styled.div`
     .nav-links a {
       width: 100%;
       text-align: center;
-      padding: 10px 0;
+      padding: 0.625rem 0;
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 30rem) {
+    /* 480px in rem */
     .header {
-      padding: 10px;
+      padding: 0.625rem;
     }
 
     .logo {
-      font-size: 1.2em;
+      font-size: 1.2rem;
     }
 
     .nav-links {
-      gap: 5px;
+      gap: 0.3125rem;
     }
 
     .nav-links a {
-      padding: 8px 0;
-      font-size: 0.9em;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
     }
   }
 `;
