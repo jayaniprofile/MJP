@@ -15,7 +15,13 @@ export const ItemField = ({ item, value, onChange }) => (
   </label>
 );
 
-export const UserInfoForm = ({ formData, handleChange }) => {
+export const UserInfoForm = ({
+  formData,
+  handleChange,
+  includeAddressField,
+  includePickupDeliveryField,
+  includePhoneField,
+}) => {
   const { name, email, address, phone, pickupOrDelivery } = formData;
 
   return (
@@ -40,40 +46,58 @@ export const UserInfoForm = ({ formData, handleChange }) => {
           required
         />
       </label>
-      <label>
-        Address:
-        <input
-          type="text"
-          name="address"
-          value={address}
-          onChange={handleChange}
-          required={pickupOrDelivery === "delivery"}
-        />
-      </label>
-      <label>
-        Phone:
-        <input
-          type="tel"
-          name="phone"
-          value={phone}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Pickup or Delivery:
-        <select
-          name="pickupOrDelivery"
-          value={pickupOrDelivery}
-          onChange={handleChange}
-        >
-          <option value="pickup">Pickup</option>
-          <option value="delivery">Delivery</option>
-        </select>
-      </label>
+      {includeAddressField && (
+        <label>
+          Address:
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      )}
+      {includePhoneField && (
+        <label>
+          Phone:
+          <input
+            type="tel"
+            name="phone"
+            value={phone}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      )}
+      {includePickupDeliveryField && (
+        <label>
+          Pickup or Delivery:
+          <select
+            name="pickupOrDelivery"
+            value={formData.pickupOrDelivery}
+            onChange={handleChange}
+          >
+            <option value="pickup">Pickup</option>
+            <option value="delivery">Delivery</option>
+          </select>
+        </label>
+      )}
     </>
   );
 };
+
+export const MessageField = ({ value, onChange }) => (
+  <label>
+    Message:
+    <textarea
+      name="message"
+      value={value}
+      onChange={onChange}
+      required
+    ></textarea>
+  </label>
+);
 
 export const OrderForm = ({
   itemsList,

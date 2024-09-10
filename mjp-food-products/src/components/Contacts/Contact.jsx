@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { contactInfo } from "../../common/content";
 import contact from "../../images/contactBanner.png";
 import { ContactStyled } from "./Contact.styled";
-import { FormContent } from "../../common/FormContent";
+import { UserInfoForm } from "../../common/Form";
+import { MessageField } from "../../common/Form";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,14 @@ function Contact() {
     email: "",
     message: "",
   });
+
+  const ContactForm = ({ formData, handleChange, handleSubmit }) => (
+    <form onSubmit={handleSubmit}>
+      <UserInfoForm formData={formData} handleChange={handleChange} />
+      <MessageField value={formData.message} onChange={handleChange} />
+      <button type="submit">Send</button>
+    </form>
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,10 +55,13 @@ function Contact() {
       <section className="contact-details">
         <div className="contact-form">
           <h2>Send Us a Message</h2>
-          <FormContent
+          <ContactForm
             formData={formData}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
+            includeAddressField={false} // No address needed for Contact form
+            includePickupDeliveryField={false}
+            includePhoneField={false}
           />
         </div>
         <div className="contact-info-details">
