@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { OrderOnlineStyled } from "./Order.styled";
+import { OrderForm } from "../../common/Form";
 
 function OrderOnline() {
   const [formData, setFormData] = useState({
@@ -23,8 +24,7 @@ function OrderOnline() {
     { id: 8, name: "Icing Cake", price: 5000 },
   ];
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = ({ target: { name, value } }) => {
     setFormData({
       ...formData,
       [name]: value,
@@ -32,13 +32,13 @@ function OrderOnline() {
   };
 
   const handleItemChange = (id, value) => {
-    setFormData({
-      ...formData,
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       items: {
-        ...formData.items,
+        ...prevFormData.items,
         [id]: value,
       },
-    });
+    }));
   };
 
   const calculateTotal = () => {
@@ -77,93 +77,17 @@ function OrderOnline() {
   };
 
   return (
-    <>
-      <OrderOnlineStyled>
-        <h1>Order Online</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Address:
-            <input
-              type="text"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              required={formData.pickupOrDelivery === "delivery"}
-            />
-          </label>
-          <label>
-            Phone:
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Pickup or Delivery:
-            <select
-              name="pickupOrDelivery"
-              value={formData.pickupOrDelivery}
-              onChange={handleChange}
-            >
-              <option value="pickup">Pickup</option>
-              <option value="delivery">Delivery</option>
-            </select>
-          </label>
-          <fieldset>
-            <legend>Select Items:</legend>
-            {itemsList.map((item) => (
-              <label key={item.id} className="item-label">
-                <span>
-                  {item.name} - Rs: {item.price}
-                </span>
-                <input
-                  type="number"
-                  min="0"
-                  name={item.name}
-                  value={formData.items[item.id] || 0}
-                  onChange={(e) =>
-                    handleItemChange(item.id, Number(e.target.value))
-                  }
-                />
-              </label>
-            ))}
-          </fieldset>
-          <label>
-            Special Instructions:
-            <textarea
-              name="instructions"
-              value={formData.instructions}
-              onChange={handleChange}
-            ></textarea>
-          </label>
-          <h2>Total Price: Rs: {calculateTotal()}</h2>
-          <button type="submit">Submit Order</button>
-        </form>
-      </OrderOnlineStyled>
-    </>
+    <OrderOnlineStyled>
+      <h1>Order Online</h1>
+      <OrderForm
+        itemsList={itemsList}
+        formData={formData}
+        handleChange={handleChange}
+        handleItemChange={handleItemChange}
+        calculateTotal={calculateTotal}
+        handleSubmit={handleSubmit}
+      />
+    </OrderOnlineStyled>
   );
 }
 
