@@ -13,6 +13,7 @@ export const ContactStyled = styled.div`
   .contact-info {
     text-align: center;
     margin-bottom: 40px;
+    text-decoration: none;
 
     h1 {
       font-size: 2.5em;

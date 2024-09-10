@@ -7,6 +7,9 @@ import godamba from "../images/godamba.jpeg";
 import parata from "../images/parata.jpeg";
 import lasagna from "../images/lasagna.jpeg";
 import cake from "../images/cake.jpeg";
+import fbIcon from "../images/fb.png";
+import insterIcon from "../images/inster.png";
+import youtubeIcon from "../images/Youtube.png";
 
 export const menuItems = {
   sweets: [
@@ -106,27 +109,25 @@ export const homeItems = [
 ];
 
 export const contactInfo = {
-  contactDetails: {
-    phone: "070 661 6049",
-    email: "mjsfoodproducts@gmail.com",
-    socialMedia: [
-      {
-        platform: "Facebook",
-        url: "https://www.facebook.com",
-        iconClass: "fab fa-facebook-f",
-      },
-      {
-        platform: "Instagram",
-        url: "https://www.instagram.com",
-        iconClass: "fab fa-instagram",
-      },
-      {
-        platform: "YouTube",
-        url: "https://www.youtube.com",
-        iconClass: "fab fa-youtube",
-      },
-    ],
-    mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0196304993946!2d144.95373631531698!3d-37.81627997975142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577bebae65121ec!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1600413549686!5m2!1sen!2sau",
-  },
+  phone: "070 661 6049",
+  email: "mjsfoodproducts@gmail.com",
+  socialMedia: [
+    {
+      platform: "Facebook",
+      url: "https://www.facebook.com",
+      image: fbIcon, // Using image instead of FontAwesome class
+    },
+    {
+      platform: "Instagram",
+      url: "https://www.instagram.com",
+      image: insterIcon,
+    },
+    {
+      platform: "YouTube",
+      url: "https://www.youtube.com",
+      image: youtubeIcon,
+    },
+  ],
+  mapUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0196304993946!2d144.95373631531698!3d-37.81627997975142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577bebae65121ec!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1600413549686!5m2!1sen!2sau",
 };

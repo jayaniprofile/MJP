@@ -4,6 +4,8 @@ import contact from "../../images/contactBanner.png";
 import { ContactStyled } from "./Contact.styled";
 import { UserInfoForm } from "../../common/Form";
 import { MessageField } from "../../common/Form";
+import { ContactDetails } from "../../common/ContactDetails";
+import { SocialMediaLinks } from "../../common/ContactDetails";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -66,14 +68,15 @@ function Contact() {
         </div>
         <div className="contact-info-details">
           <h2>Reach Out</h2>
-          <p>
+          {/* <p>
             <strong>Phone:</strong> {contactInfo.contactDetails.phone}
           </p>
           <p>
             <strong>Email:</strong> {contactInfo.contactDetails.email}
-          </p>
+          </p> */}
+          <ContactDetails />
           <div className="social-media">
-            {contactInfo.contactDetails.socialMedia.map((social, index) => (
+            {/* {contactInfo.contactDetails.socialMedia.map((social, index) => (
               <a
                 key={index}
                 href={social.url}
@@ -82,10 +85,11 @@ function Contact() {
               >
                 <i className={social.iconClass}></i>
               </a>
-            ))}
+            ))} */}
+            <SocialMediaLinks />
           </div>
           <div className="map">
-            <iframe src={contactInfo.contactDetails.mapUrl}></iframe>
+            <iframe src={contactInfo.mapUrl}></iframe>
           </div>
         </div>
       </section>

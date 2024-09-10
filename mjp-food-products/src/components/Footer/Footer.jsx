@@ -1,10 +1,7 @@
 import React from "react";
-import fb from "../../images/fb.png";
-import inster from "../../images/inster.png";
-import utube from "../../images/Youtube.png";
-import phone from "../../images/tele.png";
-import email from "../../images/emaill.png";
 import { FooterStyled } from "./Footer.styled";
+import { ContactDetails } from "../../common/ContactDetails";
+import { SocialMediaLinks } from "../../common/ContactDetails";
 
 function Footer() {
   return (
@@ -12,42 +9,11 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p className="para">
-            <img src={email} alt="email" />{" "}
-            <a href="mailto:info@mjsfoodproducts.com">
-              mjsfoodproducts@gmail.com
-            </a>
-          </p>
-          <p>
-            <img src={phone} alt="phone" />{" "}
-            <a href="tel:+1234567890">070 661 6049</a>
-          </p>
+          <ContactDetails />
         </div>
         <div className="footer-section">
           <h3>Follow Us</h3>
-          <div className="social-links">
-            <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={fb} alt="Facebook" />
-            </a>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={inster} alt="Instagram" />
-            </a>
-            <a
-              href="https://www.youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={utube} alt="YouTube" />
-            </a>
-          </div>
+          <SocialMediaLinks />
         </div>
         <div className="footer-section">
           <h3>About MJS Food Products</h3>
