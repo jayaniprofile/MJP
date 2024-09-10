@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { OrderOnlineStyled } from "./Order.styled";
 import { OrderForm } from "../../common/Form";
+import itemsList from "../../data/items.json";
 
 function OrderOnline() {
   const [formData, setFormData] = useState({
@@ -12,17 +13,6 @@ function OrderOnline() {
     items: {},
     instructions: "",
   });
-
-  const itemsList = [
-    { id: 1, name: "Kottu", price: 300 },
-    { id: 2, name: "Parata", price: 300 },
-    { id: 3, name: "Godamba Roti", price: 300 },
-    { id: 4, name: "Lasagna Sheet", price: 300 },
-    { id: 5, name: "Chocolate Cake", price: 2000 },
-    { id: 6, name: "Butter Cake", price: 1500 },
-    { id: 7, name: "Cup Cake", price: 200 },
-    { id: 8, name: "Icing Cake", price: 5000 },
-  ];
 
   const handleChange = ({ target: { name, value } }) => {
     setFormData({
