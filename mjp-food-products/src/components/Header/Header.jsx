@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../style/Header.css";
-import Navigation from "./Navigation"; // Import the CSS file
+import Navigation from "./Navigation";
+import { HeaderStyled } from "./Header.styled";
+import lg from "../../images/LG.png";
 
 function Header() {
   return (
-    <header className="header">
+    <HeaderStyled>
       <div className="logo">
-        <Link to={"/home"}>MJS Food Products</Link>
+        <Link to={"/home"}>
+          <img className="abc" src={lg} alt="head" />
+        </Link>
       </div>
       <Navigation />
-    </header>
+    </HeaderStyled>
   );
 }
 

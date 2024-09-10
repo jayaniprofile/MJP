@@ -1,14 +1,14 @@
 import React from "react";
-import "../style/Footer.css";
-import fb from "../images/fb.png";
-import inster from "../images/inster.png";
-import utube from "../images/Youtube.png";
-import phone from "../images/tele.png";
-import email from "../images/emaill.png";
+import fb from "../../images/fb.png";
+import inster from "../../images/inster.png";
+import utube from "../../images/Youtube.png";
+import phone from "../../images/tele.png";
+import email from "../../images/emaill.png";
+import { FooterStyled } from "./Footer.styled";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <FooterStyled>
       <div className="footer-content">
         <div className="footer-section">
           <h3>Contact Us</h3>
@@ -61,7 +61,7 @@ function Footer() {
       <div className="footer-bottom">
         <p>&copy; 2024 MJS Food Products. All rights reserved.</p>
       </div>
-    </footer>
+    </FooterStyled>
   );
 }
 
